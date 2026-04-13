@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.driftEngine.goTo(target);
             });
         });
+
+        // Activation des iframes au besoin (Lazy Loading Logic)
+        const observeActiveSections = () => {
+            document.querySelectorAll('.zone.section-active').forEach(zone => {
+                zone.querySelectorAll('iframe[data-src]').forEach(iframe => {
+                    iframe.src = iframe.getAttribute('data-src');
+                    iframe.removeAttribute('data-src');
+                });
+            });
+            requestAnimationFrame(observeActiveSections);
+        };
+        observeActiveSections();
     }
 
     // Gestion du formulaire de contact (mailto)
@@ -120,15 +132,25 @@ function initCursor() {
     animateCursor();
     
     // Effet hover sur les éléments interactifs
-    const interactives = document.querySelectorAll('button, a, input, textarea, .minimap-dot');
+    const interactives = document.querySelectorAll('button, a, input, textarea, .minimap-dot, .expand-btn');
     interactives.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
             cursor.style.backgroundColor = 'var(--cursor-color)';
+            
+            // Jouer un petit son si atmosphère active
+            if (window.atmosphereManager) window.atmosphereManager.playClick();
         });
         el.addEventListener('mouseleave', () => {
             cursor.style.transform = 'translate(-50%, -50%) scale(1)';
             cursor.style.backgroundColor = 'transparent';
         });
     });
+
+    // Désactivation automatique de l'atmosphère sur mobile (précaution supplémentaire)
+    if (window.innerWidth <= 1024 && window.atmosphereManager) {
+        // Optionnel : masquer complètement le bouton toggle sur mobile
+        const toggle = document.getElementById('atmosphere-toggle');
+        if (toggle) toggle.style.display = 'none';
+    }
 }

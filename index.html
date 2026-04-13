@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+    <!-- Atmosphere Particles Canvas -->
+    <canvas id="atmosphere-canvas"></canvas>
+
     <!-- Custom Cursor -->
     <div id="cursor" class="custom-cursor"></div>
     <div id="cursor-trail" class="custom-cursor-trail"></div>
@@ -40,6 +43,11 @@
                 <div class="lang-switcher">
                     <button data-set-lang="fr" class="active">FR</button>
                     <button data-set-lang="en">EN</button>
+                </div>
+                <div class="misc-controls">
+                    <button id="atmosphere-toggle" title="Atmosphère (Son & SFX)" class="inactive">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 19.07 1.41 1.41"/><path d="M12 22v2"/><path d="m6.34 17.66-1.41 1.41"/><path d="M2 12H0"/><path d="m7.76 7.76-1.41-1.41"/><circle cx="12" cy="12" r="4"/></svg>
+                    </button>
                 </div>
             </div>
         </header>
@@ -127,7 +135,7 @@
                             
                             <div class="card-img" style="overflow: hidden; background: #fff; padding: 0;">
                                 <!-- Iframe désactivée aux clics, mise à l'échelle pour faire un aperçu -->
-                                <iframe src="https://maths-app.fr" style="width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"></iframe>
+                                <iframe data-src="https://maths-app.fr" style="width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"></iframe>
                             </div>
                             <h3>Maths-app.fr</h3>
                         </div>
@@ -150,7 +158,7 @@
                             <a href="https://ballisos-website.vercel.app/" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;"></a>
                             
                             <div class="card-img" style="overflow: hidden; background: #05020a; padding: 0;">
-                                <iframe src="https://ballisos-website.vercel.app/" style="width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"></iframe>
+                                <iframe data-src="https://ballisos-website.vercel.app/" style="width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"></iframe>
                             </div>
                             <h3>Ballisos</h3>
                             <p style="opacity: 0.8; margin-top: 0.5rem; font-size: 0.9rem;" data-i18n="ballisos_desc">Studio co-fondé (Growth Catalyst). Open-world RPG médiéval fantasy où vous incarnez une puissante créature de flammes.</p>
@@ -269,6 +277,7 @@
     <!-- Scripts -->
     <script src="js/i18n.js"></script>
     <script src="js/themes.js"></script>
+    <script src="js/atmosphere.js"></script>
     <script src="js/drift.js"></script>
     <script src="js/app.js"></script>
 </body>

@@ -31,8 +31,10 @@ class DriftEngine {
         this.lerpFactor = 0.03;
 
         // Limites du viewport pour centrer
-        this.offsetX = 50; // vw (centrer l'élément horizontalement)
         this.offsetY = 50; // vh (centrer verticalement)
+
+        this.prevProgress = 0;
+        this.velocity = 0;
 
         this.initEvents();
         this.loop();
@@ -110,6 +112,17 @@ class DriftEngine {
         // Appliquer la transformation au monde
         // On veut que camX, camY soit au centre de l'écran (50vw, 50vh)
         this.world.style.transform = `translate(calc(50vw - ${camX}vw), calc(50vh - ${camY}vh))`;
+
+        // Motion Blur based on speed
+        this.velocity = Math.abs(this.currentProgress - this.prevProgress);
+        this.prevProgress = this.currentProgress;
+        
+        const blurAmount = Math.min(this.velocity * 500, 10); // Max 10px blur
+        if (blurAmount > 0.5) {
+            this.world.style.filter = `blur(${blurAmount.toFixed(1)}px)`;
+        } else {
+            this.world.style.filter = 'none';
+        }
 
         // Parallax sur le background pseudo-infini (1vw = 1% environment approx)
         if (this.worldBackground) {

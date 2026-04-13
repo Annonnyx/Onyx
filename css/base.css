@@ -31,6 +31,22 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
 }
 
+#atmosphere-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5; /* Entre le background et le monde */
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+#atmosphere-canvas.active {
+    opacity: 1;
+}
+
 /* Custom Cursor */
 .custom-cursor {
     position: fixed;
@@ -110,9 +126,36 @@ header {
     transition: opacity 0.3s, transform 0.3s, color 0.3s;
 }
 
-.theme-switcher button.active, .lang-switcher button.active,
 .theme-switcher button:hover, .lang-switcher button:hover {
     opacity: 1;
+    transform: scale(1.1);
+}
+
+.misc-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 2rem;
+}
+
+#atmosphere-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    cursor: none;
+}
+
+#atmosphere-toggle.active {
+    opacity: 1;
+    color: var(--accent-color);
+    filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+#atmosphere-toggle:hover {
+    opacity: 0.8;
     transform: scale(1.1);
 }
 
