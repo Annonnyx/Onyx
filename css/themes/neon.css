@@ -11,9 +11,16 @@
 
 /* Depth of Field / Blur quand on s'éloigne */
 :root[data-theme="neon"] .zone {
+    /* On applique le flou de profondeur SEULEMENT si le monde ne bouge pas (pas de motion blur global) */
     filter: blur(clamp(0px, calc((var(--dist) - 30) * 0.15px), 15px));
     opacity: clamp(0.2, calc(1.5 - var(--dist) * 0.01), 1);
-    transition: filter 0.1s ease-out, opacity 0.1s ease-out;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Désactive le flou interne quand le flou global (motion blur) est actif pour éviter les clignotements */
+:root[style*="--is-moving: 1"] .zone,
+:root[style*="--is-moving:1"] .zone {
+    filter: none !important;
 }
 
 /* Grille background cyberpunk */

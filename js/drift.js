@@ -120,8 +120,10 @@ class DriftEngine {
         const blurAmount = Math.min(this.velocity * 500, 10); // Max 10px blur
         if (blurAmount > 0.5) {
             this.world.style.filter = `blur(${blurAmount.toFixed(1)}px)`;
+            document.documentElement.style.setProperty('--is-moving', '1');
         } else {
-            this.world.style.filter = 'blur(0px)';
+            this.world.style.filter = 'none';
+            document.documentElement.style.setProperty('--is-moving', '0');
         }
 
         // Parallax sur le background pseudo-infini (1vw = 1% environment approx)

@@ -244,7 +244,7 @@ header {
     left: 0;
     width: 300vw;
     height: 300vh;
-    will-change: transform, filter;
+    will-change: transform; /* On garde que le transform pour plus de stabilité */
     backface-visibility: hidden;
     transform: translateZ(0); 
     z-index: 10;
@@ -253,10 +253,9 @@ header {
     position: absolute;
     width: 60vw;
     max-width: 1000px;
-    /* translate3d active le positionnement 3D pour forcer Safari à placer ce contenu AU DESSUS des grilles rotatives */
     transform: translate3d(-50%, -50%, 100px);
     backface-visibility: hidden;
-    will-change: filter, opacity;
+    will-change: transform;
 }
 
 .reveal-content {
