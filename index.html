@@ -30,7 +30,7 @@
     <!-- UI Overlay (Fixed) -->
     <div class="ui-overlay">
         <header>
-            <div class="logo">Ø</div>
+            <div class="logo" id="secret-trigger">Ø</div>
             <div class="controls">
                 <div class="theme-switcher">
                     <button data-set-theme="neon" class="active" title="Neon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/></svg></button>
@@ -250,6 +250,18 @@
                         <a href="https://discord.gg/unCSWmXMdk" target="_blank" class="discord-btn">Rejoindre notre Discord</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-secret" class="detail-modal modal-top">
+        <button class="close-modal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        <div class="modal-content" style="text-align: center;">
+            <h2 class="glitch-text" data-text="Secret trouvé">Secret trouvé</h2>
+            <div class="text-block">
+                <p style="font-size: 1.5rem; margin-bottom: 2rem;">Bravo, tu as trouvé le lien ! Voici le Discord :</p>
+                <a href="https://discord.gg/N3jUpWdQhq" target="_blank" class="discord-btn" style="background: #7289da;">Accès au Discord</a>
+                <p style="margin-top: 2rem; opacity: 0.6;">Entrez-y à vos risques et périls...</p>
             </div>
         </div>
     </div>

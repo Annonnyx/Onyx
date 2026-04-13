@@ -91,6 +91,8 @@ class DriftEngine {
     }
 
     update() {
+        if (window.innerWidth <= 1024) return;
+        
         // smooth target progress
         this.currentProgress = this.lerp(this.currentProgress, this.targetProgress, this.lerpFactor);
 

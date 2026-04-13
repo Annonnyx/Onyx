@@ -37,6 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Easter Egg logo click
+    const secretTrigger = document.getElementById('secret-trigger');
+    if (secretTrigger) {
+        secretTrigger.addEventListener('click', () => {
+            const modal = document.getElementById('modal-secret');
+            if (modal) modal.classList.add('active');
+        });
+    }
+
     // Gestion des modales détaillées "En savoir plus"
     const expandBtns = document.querySelectorAll('.expand-btn');
     const closeBtns = document.querySelectorAll('.close-modal');

@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 2px solid var(--accent-color);
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 9999;
+    z-index: 100001;
     transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--cursor-color);
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 9998;
+    z-index: 100000;
     transition: transform 0.1s;
 }
 
@@ -221,4 +221,88 @@ header {
 .section-active .reveal-content {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Responsive Mobile Layout */
+@media (max-width: 1024px), (orientation: portrait) {
+    body, html {
+        overflow-y: auto !important; /* Réactive le scroll natif */
+        overflow-x: hidden !important;
+        cursor: default; /* Curseur standard plus pratique sur mobile */
+    }
+
+    * {
+        cursor: auto !important;
+    }
+
+    .custom-cursor, .custom-cursor-trail {
+        display: none !important;
+    }
+
+    .ui-overlay {
+        position: absolute; /* Reste en haut ou scroll avec */
+        height: auto;
+    }
+
+    header {
+        padding: 1.5rem 2rem;
+        background: rgba(7, 6, 11, 0.9);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 10002;
+    }
+
+    .minimap-container, .scroll-prompt {
+        display: none !important;
+    }
+
+    #viewport {
+        overflow: visible;
+        height: auto;
+    }
+
+    #world {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important; /* Désactive la translation JS */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8rem;
+        padding: 12rem 2rem 5rem 2rem;
+    }
+
+    .zone {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .reveal-content {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Ajustement des textes */
+    h1 { font-size: 4rem; }
+    h2 { font-size: 2.2rem; }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .detail-modal .modal-content {
+        padding: 4rem 1.5rem;
+    }
+
+    .detail-modal h2 {
+        font-size: 2.5rem;
+    }
 }
