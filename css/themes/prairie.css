@@ -1,0 +1,102 @@
+/* css/themes/prairie.css */
+
+:root[data-theme="prairie"] {
+    --bg-color: #eee6d8;
+    --text-color: #4a4a4a;
+    --accent-color: #6b8f71;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+    --cursor-color: rgba(107, 143, 113, 0.6);
+}
+
+/* Effet Peinture Aquarelle (Watercolor/Vintage) quand on s'éloigne */
+:root[data-theme="prairie"] .zone {
+    filter: 
+        sepia(clamp(0%, calc((var(--dist) - 20) * 1.5%), 80%)) 
+        saturate(clamp(60%, calc(100% - var(--dist) * 0.5%), 100%))
+        contrast(clamp(80%, calc(100% - var(--dist) * 0.2%), 100%))
+        blur(clamp(0px, calc((var(--dist) - 40) * 0.08px), 8px));
+    opacity: clamp(0.4, calc(1.5 - var(--dist) * 0.01), 1);
+    transition: filter 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+:root[data-theme="prairie"] #world-background {
+    /* Superbe effet Peinture / Aquarelle très clair et vaporeux */
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 15% 25%, rgba(204, 153, 153, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(135, 168, 142, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 35% 85%, rgba(218, 185, 104, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(180, 150, 160, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(220, 230, 210, 0.5) 0%, transparent 60%);
+    background-size: 200vw 200vh; /* Des tuiles de motif gigantesques pour ne jamais croiser une "seam" */
+    filter: blur(40px); /* Fusionne encore plus les gradients */
+    transform: scale(1.2); /* Cache les bords coupés du filtre de flou */
+}
+
+:root[data-theme="prairie"] .custom-cursor {
+    border: none;
+    background: rgba(107, 143, 113, 0.3);
+    transform: translate(-50%, -50%) scale(1.5);
+    backdrop-filter: blur(2px);
+}
+
+:root[data-theme="prairie"] h1, 
+:root[data-theme="prairie"] h2 {
+    color: #2c3e2e;
+    font-weight: 400;
+    font-style: italic;
+}
+
+:root[data-theme="prairie"] .logo {
+    color: var(--accent-color);
+}
+
+:root[data-theme="prairie"] .project-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+:root[data-theme="prairie"] .project-card:hover {
+    box-shadow: 0 15px 40px rgba(107, 143, 113, 0.15);
+}
+
+:root[data-theme="prairie"] .placeholder-img {
+    background: #e9e5db;
+    border: none;
+}
+
+:root[data-theme="prairie"] input, 
+:root[data-theme="prairie"] textarea {
+    border-bottom-color: rgba(0,0,0,0.5);
+    color: var(--text-color);
+}
+
+:root[data-theme="prairie"] input::placeholder, 
+:root[data-theme="prairie"] textarea::placeholder {
+    color: rgba(0,0,0,0.4);
+}
+
+:root[data-theme="prairie"] button[type="submit"] {
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 30px;
+}
+
+:root[data-theme="prairie"] .minimap-container {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0,0,0,0.1);
+}
+
+:root[data-theme="prairie"] .minimap-indicator {
+    border-color: var(--accent-color);
+}
+
+:root[data-theme="prairie"] .minimap-dot {
+    background: transparent;
+    color: #2c3e2e; /* Vert de gris foncé pour du contraste au lieu du gris fade */
+    opacity: 0.9;
+}

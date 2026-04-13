@@ -1,0 +1,62 @@
+/* css/themes/neon.css */
+
+:root[data-theme="neon"] {
+    --bg-color: #07060b;
+    --text-color: #ffffff;
+    --accent-color: #00f0ff;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'JetBrains Mono', monospace;
+    --cursor-color: rgba(0, 240, 255, 0.8);
+}
+
+/* Depth of Field / Blur quand on s'éloigne */
+:root[data-theme="neon"] .zone {
+    filter: blur(clamp(0px, calc((var(--dist) - 30) * 0.15px), 15px));
+    opacity: clamp(0.2, calc(1.5 - var(--dist) * 0.01), 1);
+    transition: filter 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+/* Grille background cyberpunk */
+:root[data-theme="neon"] #world-background {
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px;
+    /* Grille infinie holographique */
+    transform-origin: center top;
+    transform: perspective(500px) rotateX(60deg);
+    opacity: 0.3;
+}
+
+:root[data-theme="neon"] h1, 
+:root[data-theme="neon"] h2, 
+:root[data-theme="neon"] .logo {
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+}
+
+:root[data-theme="neon"] .custom-cursor {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+:root[data-theme="neon"] button[type="submit"] {
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+:root[data-theme="neon"] button[type="submit"]:hover {
+    box-shadow: 0 0 25px var(--accent-color), 0 0 5px #fff;
+}
+
+:root[data-theme="neon"] .project-card {
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    padding: 1rem;
+    background: rgba(0, 20, 30, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+:root[data-theme="neon"] .project-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}

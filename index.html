@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="neon">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ønyx | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Neon Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet" class="theme-font-neon">
+    <!-- Prairie Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" class="theme-font-prairie" disabled>
+    <!-- Medieval Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" class="theme-font-medieval" disabled>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/themes/neon.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-trail" class="custom-cursor-trail"></div>
+
+    <!-- UI Overlay (Fixed) -->
+    <div class="ui-overlay">
+        <header>
+            <div class="logo">Ø</div>
+            <div class="controls">
+                <div class="theme-switcher">
+                    <button data-set-theme="neon" class="active" title="Neon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/></svg></button>
+                    <button data-set-theme="prairie" title="Prairie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></button>
+                    <button data-set-theme="medieval" title="Medieval"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" y1="19" x2="19" y2="13"/><line x1="16" y1="16" x2="20" y2="20"/><line x1="19" y1="21" x2="21" y2="19"/></svg></button>
+                </div>
+                <div class="lang-switcher">
+                    <button data-set-lang="fr" class="active">FR</button>
+                    <button data-set-lang="en">EN</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Minimap -->
+        <div class="minimap-container">
+            <div class="minimap">
+                <div class="minimap-indicator"></div>
+                <div class="minimap-dot" data-target="hero" style="top: 10%; left: 10%;" title="Accueil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <div class="minimap-dot" data-target="about" style="top: 30%; left: 40%;" title="À Propos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="minimap-dot" data-target="zone-3d" style="top: 10%; left: 70%;" title="3D"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+                <div class="minimap-dot" data-target="zone-web" style="top: 50%; left: 80%;" title="Web Apps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <div class="minimap-dot" data-target="zone-games" style="top: 80%; left: 50%;" title="Jeux Indés"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/></svg></div>
+                <div class="minimap-dot" data-target="zone-other" style="top: 60%; left: 20%;" title="Expérimentations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.29 1.29L3 12l5.8 1.9a2 2 0 0 1 1.29 1.29L12 21l1.9-5.8a2 2 0 0 1 1.29-1.29L21 12l-5.8-1.9a2 2 0 0 1-1.29-1.29L12 3Z"/></svg></div>
+                <div class="minimap-dot" data-target="contact" style="top: 90%; left: 10%;" title="Contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            </div>
+        </div>
+
+        <div class="scroll-prompt">
+            <span class="scroll-icon">↓</span>
+            <span data-i18n="scroll_prompt">Scroll / Dérive</span>
+        </div>
+    </div>
+
+    <!-- 2D World Space -->
+    <div id="viewport">
+        <!-- Background effects (fixed relative to viewport) -->
+        <div id="world-background"></div>
+
+        <div id="world">
+            <!-- Sections / Zones -->
+            <section id="hero" class="zone section-active" style="left: 10vw; top: 10vh;">
+                <div class="reveal-content">
+                    <h1 class="glitch-text" data-text="Ønyx">Ønyx</h1>
+                    <h2 data-i18n="hero_role">Créateur Digital</h2>
+                </div>
+            </section>
+
+            <section id="about" class="zone" style="left: 60vw; top: 50vh;">
+                <div class="reveal-content">
+                    <h2 data-i18n="about_title">À Propos</h2>
+                    <div class="about-grid">
+                        <div class="about-image placeholder-img"></div>
+                        <div class="about-text">
+                            <p data-i18n="about_text">Je suis Ønyx. Je crée des expériences immersives, brisant les frontières entre les mondes numériques et réels.</p>
+                            <div class="skills" data-i18n="about_skills">Design | Code | 3D | Magie</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="zone-3d" class="zone" style="left: 120vw; top: 20vh;">
+                <div class="reveal-content">
+                    <h2 data-i18n="3d_title">Créations 3D</h2>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="card-img placeholder-img"></div>
+                            <h3>Nexus</h3>
+                        </div>
+                        <div class="project-card">
+                            <div class="card-img placeholder-img"></div>
+                            <h3>Void</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="zone-web" class="zone" style="left: 160vw; top: 90vh;">
+                <div class="reveal-content">
+                    <h2 data-i18n="web_title">Web Apps</h2>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="card-img placeholder-img"></div>
+                            <h3>Système Ørbis</h3>
+                        </div>
+                        <div class="project-card" style="position: relative;">
+                            <!-- Lien click-catcher qui empêche l'interaction directe avec l'iframe mais gère le clic -->
+                            <a href="https://maths-app.fr" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;"></a>
+                            
+                            <div class="card-img" style="overflow: hidden; background: #fff; padding: 0;">
+                                <!-- Iframe désactivée aux clics, mise à l'échelle pour faire un aperçu -->
+                                <iframe src="https://maths-app.fr" style="width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"></iframe>
+                            </div>
+                            <h3>Maths-app.fr</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="zone-games" class="zone" style="left: 100vw; top: 150vh;">
+                <div class="reveal-content">
+                    <h2 data-i18n="games_title">Jeux Indés</h2>
+                    <div class="project-grid">
+                        <div class="project-card" style="position: relative;">
+                            <!-- Lien click-catcher -->
+                            <a href="https://ballisos-website.vercel.app/" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;"></a>
+                            
+                            <div class="card-img" style="overflow: hidden; background: #05020a; padding: 0;">
+                                <iframe src="https://ballisos-website.vercel.app/" style="width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"></iframe>
+                            </div>
+                            <h3>Ballisos</h3>
+                            <p style="opacity: 0.8; margin-top: 0.5rem; font-size: 0.9rem;" data-i18n="ballisos_desc">Studio co-fondé (Growth Catalyst). Open-world RPG médiéval fantasy où vous incarnez une puissante créature de flammes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="zone-other" class="zone" style="left: 30vw; top: 130vh;">
+                <div class="reveal-content">
+                    <h2 data-i18n="other_title">Expérimentations</h2>
+                    <p data-i18n="other_desc">Génératif, Audio, et au-delà.</p>
+                </div>
+            </section>
+
+            <section id="contact" class="zone" style="left: 20vw; top: 200vh;">
+                <div class="reveal-content">
+                    <h2 data-i18n="contact_title">Transmission</h2>
+                    <form id="contact-form">
+                        <input type="text" placeholder="Nom // ID" data-i18n-placeholder="contact_name" required>
+                        <input type="email" placeholder="Email" required>
+                        <textarea rows="4" placeholder="Message..." data-i18n-placeholder="contact_msg" required></textarea>
+                        <button type="submit" data-i18n="contact_btn">Envoyer</button>
+                    </form>
+                    <div class="socials">
+                        <a href="https://github.com/Annonnyx" target="_blank">GitHub</a>
+                        <a href="https://www.behance.net/onyxofficial" target="_blank">Behance</a>
+                        <a href="https://www.instagram.com/_onyx_3d?utm_source=ig_web_button_share_sheet&igsh=ZDNIZDc0MzlxNw==" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/i18n.js"></script>
+    <script src="js/themes.js"></script>
+    <script src="js/drift.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
