@@ -26,6 +26,7 @@
     transform-origin: center top;
     transform: perspective(500px) rotateX(60deg);
     opacity: 0.3;
+    will-change: transform;
 }
 
 :root[data-theme="neon"] h1, 

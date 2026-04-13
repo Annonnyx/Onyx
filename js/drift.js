@@ -121,7 +121,7 @@ class DriftEngine {
         if (blurAmount > 0.5) {
             this.world.style.filter = `blur(${blurAmount.toFixed(1)}px)`;
         } else {
-            this.world.style.filter = 'none';
+            this.world.style.filter = 'blur(0px)';
         }
 
         // Parallax sur le background pseudo-infini (1vw = 1% environment approx)
