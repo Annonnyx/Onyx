@@ -104,6 +104,12 @@
                             <h3>Void</h3>
                         </div>
                     </div>
+                    <div class="expand-btn-container">
+                        <button class="expand-btn arrow-up" data-modal="modal-3d">
+                            <span class="icon">↑</span>
+                            <span class="text">En savoir plus</span>
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -126,6 +132,12 @@
                             <h3>Maths-app.fr</h3>
                         </div>
                     </div>
+                    <div class="expand-btn-container" style="text-align: right;">
+                        <button class="expand-btn arrow-right" data-modal="modal-web">
+                            <span class="text">En savoir plus</span>
+                            <span class="icon">→</span>
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -143,6 +155,12 @@
                             <h3>Ballisos</h3>
                             <p style="opacity: 0.8; margin-top: 0.5rem; font-size: 0.9rem;" data-i18n="ballisos_desc">Studio co-fondé (Growth Catalyst). Open-world RPG médiéval fantasy où vous incarnez une puissante créature de flammes.</p>
                         </div>
+                    </div>
+                    <div class="expand-btn-container" style="text-align: right; margin-top: 2rem;">
+                        <button class="expand-btn arrow-bottom-right" data-modal="modal-games">
+                            <span class="text">En savoir plus</span>
+                            <span class="icon">↘</span>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -170,6 +188,69 @@
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+
+    <!-- Modals Detailed Views -->
+    <div id="modal-3d" class="detail-modal modal-top">
+        <button class="close-modal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        <div class="modal-content">
+            <h2 class="glitch-text" data-text="Créations 3D">Créations 3D</h2>
+            <div class="modal-gallery">
+                <div class="text-block">
+                    <h3>Modélisation</h3>
+                    <p>Texte explicatif sur la modélisation 3D...</p>
+                </div>
+                <div class="media-block placeholder-img" style="aspect-ratio: 16/9;"></div>
+                <div class="media-block placeholder-img" style="aspect-ratio: 1/1;"></div>
+                
+                <div class="text-block">
+                    <h3>Animation & Simulation</h3>
+                    <p>Texte explicatif sur les techniques d'animation et de simulation physique ou particulaire...</p>
+                </div>
+                <div class="media-block placeholder-img" style="aspect-ratio: 16/9;"></div>
+                <div class="media-block placeholder-img" style="aspect-ratio: 9/16;"></div>
+                <!-- Espace pour que l'utilisateur ajoute beaucoup de photos et vidéos --->
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-web" class="detail-modal modal-right">
+        <button class="close-modal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        <div class="modal-content">
+            <h2 class="glitch-text" data-text="Web Apps">Web Apps</h2>
+            <div class="modal-projects">
+                <div class="project-detail row">
+                    <div class="media-block placeholder-img" style="aspect-ratio: 16/9; flex: 1;"></div>
+                    <div class="text-block" style="flex: 1;">
+                        <h3>Système Ørbis</h3>
+                        <p>Simulation économique immersive et complète avec un design ultra-moderne (Liquid Glass, Neo-morphism). Gestion d'entreprises, marché boursier, et inflation.</p>
+                    </div>
+                </div>
+                <div class="project-detail row reverse">
+                    <div class="media-block placeholder-img" style="aspect-ratio: 16/9; flex: 1;"></div>
+                    <div class="text-block" style="flex: 1;">
+                        <h3>Maths-app.fr</h3>
+                        <p>Application éducative interactive et ludique pour la maîtrise du calcul mental, avec son propre système de progression et de récompenses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-games" class="detail-modal modal-bottom-right">
+        <button class="close-modal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        <div class="modal-content">
+            <h2 class="glitch-text" data-text="Ballisos">Ballisos</h2>
+            <div class="modal-projects">
+                <div class="project-detail column">
+                    <div class="media-block placeholder-img" style="aspect-ratio: 21/9; width: 100%;"></div>
+                    <div class="text-block">
+                        <p>Open-world RPG médiéval fantasy immersif. Vous incarnez une puissante créature de flammes dans un monde ravagé par un blizzard éternel. En tant que Growth Catalyst du studio, je contribue à propulser cet univers vers les joueurs.</p>
+                        <a href="https://discord.gg/unCSWmXMdk" target="_blank" class="discord-btn">Rejoindre notre Discord</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

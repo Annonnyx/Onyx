@@ -37,6 +37,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Gestion des modales détaillées "En savoir plus"
+    const expandBtns = document.querySelectorAll('.expand-btn');
+    const closeBtns = document.querySelectorAll('.close-modal');
+
+    expandBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+            }
+        });
+    });
+
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modal = btn.closest('.detail-modal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        });
+    });
+
+    // Isolation du scroll pour ne pas faire dériver le monde en arrière-plan
+    document.querySelectorAll('.detail-modal').forEach(modal => {
+        modal.addEventListener('wheel', (e) => { e.stopPropagation(); }, { passive: true });
+        modal.addEventListener('touchmove', (e) => { e.stopPropagation(); }, { passive: true });
+        modal.addEventListener('touchstart', (e) => { e.stopPropagation(); }, { passive: true });
+    });
+
+    // Fermer avec Echap
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.detail-modal.active').forEach(modal => {
+                modal.classList.remove('active');
+            });
+        }
+    });
+
     // Gestion du curseur personnalisé
     initCursor();
 });

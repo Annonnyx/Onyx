@@ -147,3 +147,188 @@ button[type="submit"]:hover {
     opacity: 1;
     color: var(--accent-color);
 }
+
+/* Expand Buttons */
+.expand-btn-container {
+    margin-top: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.expand-btn {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.expand-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.expand-btn .icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.expand-btn:hover .icon {
+    transform: scale(1.2);
+}
+
+/* Detail Modals */
+.detail-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 2, 10, 0.85); /* Fond sombre de base */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 9999;
+    color: var(--text-color);
+    visibility: hidden;
+    opacity: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: visibility 0s 0.6s, opacity 0.6s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.detail-modal.active {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s 0s, opacity 0.6s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translate(0, 0) !important;
+}
+
+/* Directions d'arrivée */
+.detail-modal.modal-top { transform: translateY(-100%); }
+.detail-modal.modal-right { transform: translateX(100%); }
+.detail-modal.modal-bottom-right { transform: translate(100%, 100%); }
+
+.close-modal {
+    position: fixed;
+    top: 2.5rem;
+    right: 2.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    width: 44px;
+    height: 44px;
+    cursor: none;
+    z-index: 10000;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg) scale(1.2);
+    color: var(--accent-color);
+}
+
+.modal-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem 6rem 3rem;
+}
+
+.modal-content h2 {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1rem;
+}
+
+/* Modal Gallery & Layouts */
+.modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 3rem;
+    align-items: start;
+}
+
+.text-block {
+    grid-column: 1 / -1; 
+    margin: 2rem 0 1rem 0;
+}
+
+.text-block h3 {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.text-block p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.media-block {
+    width: 100%;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+}
+
+/* Row-based layouts */
+.modal-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.project-detail.row {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
+}
+
+.project-detail.row.reverse {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .project-detail.row, .project-detail.row.reverse {
+        flex-direction: column;
+    }
+}
+
+.project-detail.column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.discord-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1.2rem 2.5rem;
+    background: #5865F2; /* Discord Blurple */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    cursor: none;
+}
+
+.discord-btn:hover {
+    transform: translateY(-5px);
+    background: #4752c4;
+    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.5);
+    color: white;
+}
