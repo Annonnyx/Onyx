@@ -7,6 +7,7 @@ class DriftEngine {
         this.viewport = document.getElementById('viewport');
         this.zones = Array.from(document.querySelectorAll('.zone'));
         this.minimapIndicator = document.querySelector('.minimap-indicator');
+        this.speedOverlay = document.getElementById('speed-overlay');
         
         // Coordonnées cibles (celles définies dans l'HTML via transform)
         // On les lit pour construire le chemin
@@ -110,19 +111,21 @@ class DriftEngine {
         const camY = this.lerp(segment.p1.y, segment.p2.y, smoothT);
 
         // Appliquer la transformation au monde
-        // On veut que camX, camY soit au centre de l'écran (50vw, 50vh)
         this.world.style.transform = `translate(calc(50vw - ${camX}vw), calc(50vh - ${camY}vh))`;
 
-        // Motion Blur based on speed
+        // Speed Motion Visual Feedback (NO BLUR for stability)
         this.velocity = Math.abs(this.currentProgress - this.prevProgress);
         this.prevProgress = this.currentProgress;
         
-        const blurAmount = Math.min(this.velocity * 500, 10); // Max 10px blur
-        if (blurAmount > 0.5) {
-            this.world.style.filter = `blur(${blurAmount.toFixed(1)}px)`;
+        if (this.speedOverlay) {
+            const speedIntensity = Math.min(this.velocity * 20, 0.4); // Max 0.4 opacity
+            this.speedOverlay.style.opacity = speedIntensity;
+        }
+
+        // Variable CSS pour les thèmes (si besoin de désactiver des trucs internes)
+        if (this.velocity > 0.001) {
             document.documentElement.style.setProperty('--is-moving', '1');
         } else {
-            this.world.style.filter = 'none';
             document.documentElement.style.setProperty('--is-moving', '0');
         }
 

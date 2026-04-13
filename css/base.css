@@ -47,6 +47,20 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
 }
 
+#speed-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000; /* Juste sous le curseur */
+    background: radial-gradient(circle, transparent 20%, var(--accent-color) 150%);
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition: opacity 0.1s linear;
+}
+
 /* Custom Cursor */
 .custom-cursor {
     position: fixed;
@@ -244,7 +258,7 @@ header {
     left: 0;
     width: 300vw;
     height: 300vh;
-    will-change: transform; /* On garde que le transform pour plus de stabilité */
+    will-change: transform;
     backface-visibility: hidden;
     transform: translateZ(0); 
     z-index: 10;
@@ -253,9 +267,9 @@ header {
     position: absolute;
     width: 60vw;
     max-width: 1000px;
-    transform: translate3d(-50%, -50%, 100px);
+    transform: translate3d(-50%, -50%, 0); /* 2D pour éviter les conflits de perspective */
     backface-visibility: hidden;
-    will-change: transform;
+    will-change: transform, opacity;
 }
 
 .reveal-content {
