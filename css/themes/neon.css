@@ -7,6 +7,7 @@
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'JetBrains Mono', monospace;
     --cursor-color: rgba(0, 240, 255, 0.8);
+    --modal-bg: rgba(7, 6, 11, 0.9);
 }
 
 /* Depth of Field / Blur quand on s'éloigne */

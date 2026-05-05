@@ -7,6 +7,7 @@
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lora', serif;
     --cursor-color: rgba(107, 143, 113, 0.6);
+    --modal-bg: rgba(238, 230, 216, 0.9); /* Fond clair pour contraster avec le texte sombre */
 }
 
 /* Effet Peinture Aquarelle (Watercolor/Vintage) quand on s'éloigne */

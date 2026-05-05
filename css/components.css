@@ -21,8 +21,8 @@ h2 {
 }
 
 .placeholder-img {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: color-mix(in srgb, var(--text-color) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
     position: relative;
     overflow: hidden;
 }
@@ -92,7 +92,7 @@ h2 {
 input, textarea {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent);
     padding: 1rem 0;
     color: var(--text-color);
     font-family: var(--font-body);
@@ -107,7 +107,7 @@ input:focus, textarea:focus {
 }
 
 input::placeholder, textarea::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: color-mix(in srgb, var(--text-color) 40%, transparent);
 }
 
 button[type="submit"] {
@@ -194,7 +194,7 @@ button[type="submit"]:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(5, 2, 10, 0.85); /* Fond sombre de base */
+    background: var(--modal-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     z-index: 9999;
@@ -246,7 +246,7 @@ button[type="submit"]:hover {
 .modal-content h2 {
     font-size: 4rem;
     margin-bottom: 3rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent);
     padding-bottom: 1rem;
 }
 
@@ -272,13 +272,14 @@ button[type="submit"]:hover {
 .text-block p {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
 .media-block {
     width: 100%;
     border-radius: 8px;
-    background: rgba(255,255,255,0.05);
+    background: color-mix(in srgb, var(--text-color) 5%, transparent);
 }
 
 /* Row-based layouts */
